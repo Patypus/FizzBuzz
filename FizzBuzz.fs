@@ -6,11 +6,17 @@ let buzz = "buzz"
  
 let GetMessageForNumber number =
     match number with
-    | numerator when numerator % 3 = 0  && numerator % 5 = 0 -> fizz + buzz
-    | numerator when numerator % 3 = 0 -> fizz
-    | numerator when numerator % 5 = 0 -> buzz
+    | x when x % 3 = 0  && x % 5 = 0 -> fizz + buzz
+    | x when x % 3 = 0 -> fizz
+    | x when x % 5 = 0 -> buzz
     | _ -> number.ToString()
  
+/// <summary>Recursive method which produces fizz buzz output for count parameter then increments it before recursing to itself
+/// with the increased count until the count is equal to total 
+/// </summary>
+/// <param name="count">Next number to evaluate for fizz buzz</param>
+/// <param name="total">Top number to fizz buzz to</param>
+/// <returns>unit</returns>
 let rec FizzBuzzToTotal count total = 
     printfn "%s" (GetMessageForNumber count)
     let incrementedcount = count + 1;
